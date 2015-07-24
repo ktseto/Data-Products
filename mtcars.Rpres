@@ -1,0 +1,41 @@
+Exploratory Data Analysis: mtcars
+========================================================
+author: ktseto
+date: July 24, 2015
+
+Background
+========================================================
+The Motor Trend Car Road Tests data set, mtcars, was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+
+- Some form of inputs in the UI
+- Some operation on the inputs
+- Some reactive output
+- Documentation on using the app
+- Simplicity
+
+Inputs
+========================================================
+Predictors and plot type are selected by radio buttons:
+
+![alt text](inputs.jpg)
+
+
+Sample Plot
+========================================================
+The following results from selecting "am" and box plot:
+
+```{r echo=FALSE}
+library(ggplot2)
+data(mtcars)
+mtcars$am <- as.factor(mtcars$am)
+g<-ggplot(mtcars, aes_string(x="am", y="mpg"))
+g<-g + labs(x="am", y="mpg")
+g<-g + geom_boxplot()
+g
+```
+
+Potential Improvements
+========================================================
+- Allow plotting any two variables against each other
+- Expand the types of plots available
+- Display multiple plots on the same screen
